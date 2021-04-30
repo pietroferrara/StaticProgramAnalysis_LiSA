@@ -11,7 +11,7 @@ class coffee_program {
 
 class product_price {
     getPrices(low) {
-		def query = "SELECT Product_Price.Date, Product_Price.Product, Product_Price.MinimumSellerName FROM (SELECT MIN(Price) AS min_price,
+		def query = "SELECT '$' || (Product_Price.Date/100)FROM (SELECT MIN(Price) AS min_price,
 		Product, Date FROM Product_Price GROUP BY Product, Date) min_price INNER JOIN Product_Price ON min_price.Product = Product_Price.Product
 		AND min_price.Date = Product_Price.Date";
 		if (low != null) {
