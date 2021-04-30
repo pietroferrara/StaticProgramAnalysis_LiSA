@@ -1,0 +1,23 @@
+
+
+class program1 {
+    getPerishablePrices(lowerBound) {
+		def query = "SELECT '$' || (RETAIL/100) FROM INVENTORY WHERE ";
+		if (lowerBound != null) {
+			query = strcat(query, strcat(strcat("WHOLESALE > ", lowerBound), " AND "));
+		}
+		query = strcat(query, strcat(strcat("TYPE IN (", "SELECT TYPECODE, TYPEDESC FROM TYPES WHERE NAME = 'fish' OR NAME = 'meat'"), ");"));
+		return query;
+    }
+}
+
+
+
+class Example2 {
+	main(cond) {
+		def x = "a";
+		while(cond)
+			x = strcat(strcat("0", x), "1");
+		return x;
+	}
+}
