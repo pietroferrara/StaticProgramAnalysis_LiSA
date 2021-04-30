@@ -19,5 +19,6 @@ class product_price {
 		}
 		query = strcat(query, strcat(strcat("TYPE IN (", "SELECT Product_Name, Dealer_ID, FROM PRODUCT_TYPE WHERE Product_Name = 'glass' OR Product_Name = 'leather'"), ");"));
 		return query;
+		
     }
 }
