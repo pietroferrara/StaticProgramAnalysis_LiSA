@@ -1,6 +1,6 @@
 class coffee_program {
     getPrices(low) {
-		def query = "SELECT COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES WHERE ";
+		def query = "SELECT '$' || (RETAIL_PRICE/100) from COFFEES WHERE ";
 		if (low != null) {
 			query = strcat(query, strcat(strcat("WHOLESALE_PRICE > ", low), " AND "));
 		}
@@ -19,6 +19,5 @@ class product_price {
 		}
 		query = strcat(query, strcat(strcat("TYPE IN (", "SELECT Product_Name, Dealer_ID, FROM PRODUCT_TYPE WHERE Product_Name = 'glass' OR Product_Name = 'leather'"), ");"));
 		return query;
-		
     }
 }
